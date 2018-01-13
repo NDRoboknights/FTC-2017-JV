@@ -3,7 +3,9 @@ package org.firstinspires.ftc.utils;
 /**
  * Created by sambl on 12/1/2017.
  */
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+
+
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.PID.PIDController;
 import org.firstinspires.ftc.PID.PIDFunctions;
@@ -16,24 +18,8 @@ import static org.firstinspires.ftc.utils.Utilities.scalePower;
 
 public class CryptoBox
 {
-    PIDController pidController;
-    TestBedBot bot;
-    public void turn(Direction dir, double angle, CycleChecker sChecker)
-    {
-        pidController.setTarget(angle);
-        pidController.start();
-        while(sChecker.checkStatus())
-        {
-            double lPower = dir.v * Math.abs(pidController.getOutput());
-            double rPower = -dir.v * Math.abs(pidController.getOutput());
-
-            double[] powers = scalePower(lPower, rPower);
-            bot.setDrivePower(powers[0], powers[1]);
-        }
-        bot.setDrivePower(0,0);
-        pidController.stop();
-    }
-    public void blueRun(Bot bot, RelicRecoveryVuMark vuMark) throws InterruptedException {
+    TestBedBot bot = new TestBedBot();
+    public void blueRun(TestBedBot bot, RelicRecoveryVuMark vuMark) throws InterruptedException {
         //For blue, we go from left to right
 
         //find target count
@@ -59,11 +45,11 @@ public class CryptoBox
         boolean prevColor = false;
         while(count < target && tChecker.checkStatus())
         {
-            if(!prevColor && bot.cSensor1.blue() >= CustomAutonomous.COLOR_THRESHOLD) {
+            if(!prevColor && bot.colorSensor.blue() >= CustomAutonomous.COLOR_THRESHOLD) {
                 count++;
                 prevColor = true;
             }
-            else if(prevColor && bot.cSensor1.blue() < CustomAutonomous.COLOR_THRESHOLD) {
+            else if(prevColor && bot.colorSensor.blue() < CustomAutonomous.COLOR_THRESHOLD) {
                 prevColor = false;
             }
         }
@@ -78,7 +64,7 @@ public class CryptoBox
 
     }
 
-    public static void redRun(Bot bot, RelicRecoveryVuMark vuMark) throws InterruptedException {
+    public static void redRun(TestBedBot bot, RelicRecoveryVuMark vuMark) throws InterruptedException {
         //For red, we go from right to left
 
         //find target count
@@ -103,11 +89,11 @@ public class CryptoBox
         boolean prevColor = false;
         while(count < target && tChecker.checkStatus())
         {
-            if(!prevColor && bot.cSensor1.blue() >= CustomAutonomous.COLOR_THRESHOLD) {
+            if(!prevColor && bot.colorSensor.blue() >= CustomAutonomous.COLOR_THRESHOLD) {
                 count++;
                 prevColor = true;
             }
-            else if(prevColor && bot.cSensor1.blue() < CustomAutonomous.COLOR_THRESHOLD) {
+            else if(prevColor && bot.colorSensor.blue() < CustomAutonomous.COLOR_THRESHOLD) {
                 prevColor = false;
             }
         }

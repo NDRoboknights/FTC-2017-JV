@@ -1,11 +1,13 @@
 package org.firstinspires.ftc.bot;
 
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.PIDCoefficients;
 import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.Gyro.ADAFruitIMU;
 import org.firstinspires.ftc.PID.PIDController;
+import org.firstinspires.ftc.PID.PIDFunctions;
 import org.firstinspires.ftc.PID.PIDInput;
 
 
@@ -19,10 +21,16 @@ public class TestBedBot extends Bot
     public DcMotor forkUp;
     public ADAFruitIMU imu;
     public PIDCoefficients pidc;
+    public PIDFunctions pidFunctions;
+    public PIDController pidController;
+    public PIDInput pidInput;
+    public ColorSensor colorSensor;
     @Override
     public void init(HardwareMap hMap)
     {
         pidc = new PIDCoefficients();
+        pidController = new PIDController(pidInput, pidc);
+        pidFunctions = new PIDFunctions(this, pidController);
         this.hardwareMap = hMap;
         leftMotor = hMap.dcMotor.get("lMotor");
         rightMotor = hMap.dcMotor.get("rMotor");
@@ -33,6 +41,7 @@ public class TestBedBot extends Bot
         rightClamp = hMap.servo.get("rightClamp");
         cServo = hMap.servo.get("cServo");
         imu = new ADAFruitIMU(hMap, "imu");
+        colorSensor = hMap.colorSensor.get("cSensor");
 
         leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);

@@ -3,9 +3,7 @@ package org.firstinspires.ftc.bot;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import java.util.ArrayList;
-import com.qualcomm.robotcore.hardware.ColorSensor;
 import static org.firstinspires.ftc.utils.Utilities.delay;
-import org.firstinspires.ftc.PID.PIDFunctions;
 /**
  * Created by sambl on 11/16/2017.
  */
@@ -45,6 +43,4 @@ public abstract class Bot {
                                 m.setPower(0);
                         }
                 }
-                public ColorSensor cSensor1;
-                public PIDFunctions pidFunctions;
         }
