@@ -33,8 +33,8 @@ public class BlueAuto extends LinearOpMode
         bot.cServo =  hardwareMap.servo.get("cServo");
 
         //bot.imu
-        bot.imu = new ADAFruitIMU(hardwareMap, "imu");
-
+//        bot.imu = new ADAFruitIMU(hardwareMap, "imu");
+        bot.init(hardwareMap);
         waitForStart();
 
         //init

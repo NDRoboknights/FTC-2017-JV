@@ -10,7 +10,7 @@ import org.firstinspires.ftc.bot.AutoBot;
 
 public class goUntil
 {
-    AutoBot bot;
+    AutoBot bot = new AutoBot();
     public void moveTo(int distincm)
     {
         //motors

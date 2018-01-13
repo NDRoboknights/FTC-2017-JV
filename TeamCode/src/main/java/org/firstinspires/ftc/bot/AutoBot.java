@@ -43,14 +43,15 @@ public class AutoBot extends Bot
     public VuforiaScanner scanner;
 
     //gyro
-    public ADAFruitIMU imu;
+//    public ADAFruitIMU imu;
 
     //vars
     public RelicRecoveryVuMark vuMarkTrue;
 
     //pid
-    private PIDController pidController = new PIDController(imu, bot.pidc);
-    public PIDFunctions func = new PIDFunctions(bot, pidController);
+//    private PIDController pidController = new PIDController(imu, bot.pidc);
+//    public PIDFunctions func = new PIDFunctions(bot, pidController);
+
     public void init(HardwareMap hMap){
         this.hardwareMap = hMap;
 
