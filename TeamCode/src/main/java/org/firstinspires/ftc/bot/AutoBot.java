@@ -55,8 +55,8 @@ public class AutoBot extends Bot
     public void init(HardwareMap hMap){
         this.hardwareMap = hMap;
 
-        leftMotor = hMap.dcMotor.get("lMotor");
-        rightMotor = hMap.dcMotor.get("rMotor");
+        leftMotor = hMap.dcMotor.get("leftMotor");
+        rightMotor = hMap.dcMotor.get("rightMotor");
         leftMotor.setDirection(DcMotor.Direction.REVERSE);
 
         forkUp = hMap.dcMotor.get("forkupdn");

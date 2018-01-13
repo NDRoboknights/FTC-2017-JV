@@ -17,7 +17,9 @@ public class Jewel {
     public Jewel(Telemetry telemetry, HardwareMap hardwareMap){
         this.telemetry = telemetry;
         this.hardwareMap = hardwareMap;
+        bot.init(hardwareMap);
     }
+
     public int getBlue(){return bot.colorSensor.blue();}
     public int getRed(){return bot.colorSensor.red();}
 
