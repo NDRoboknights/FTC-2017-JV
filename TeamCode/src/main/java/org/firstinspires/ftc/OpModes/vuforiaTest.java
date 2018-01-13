@@ -8,7 +8,7 @@ import org.firstinspires.ftc.AutoUtils.VuforiaScanner;
 /**
  * Created by sambl on 12/15/2017.
  */
-@TeleOp(name = "vuforiaTest", group = "Test")
+//@TeleOp(name = "vuforiaTest", group = "Test")
 public class vuforiaTest extends OpMode
 {
     VuforiaScanner scanner = new VuforiaScanner();

@@ -3,6 +3,8 @@ package org.firstinspires.ftc.utils;
 /**
  * Created by sambl on 12/1/2017.
  */
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+
 import org.firstinspires.ftc.PID.PIDController;
 import org.firstinspires.ftc.PID.PIDFunctions;
 import org.firstinspires.ftc.bot.TestBedBot;

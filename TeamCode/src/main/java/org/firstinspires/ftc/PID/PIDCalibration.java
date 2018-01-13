@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.PID;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.PIDCoefficients;
 
 import org.firstinspires.ftc.Gyro.ADAFruitIMU;
@@ -11,7 +12,7 @@ import org.firstinspires.ftc.utils.Direction;
 
 import java.util.concurrent.TimeUnit;
 
-@Autonomous(name="Calibration: PIDCalibration",group="Calibration")
+@TeleOp(name="Calibration: PIDCalibration",group="Calibration")
 public class PIDCalibration extends CustomAutonomous
 {
     TestBedBot bot = new TestBedBot();

@@ -2,13 +2,7 @@
 package org.firstinspires.ftc.OpModes;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
-
-import org.firstinspires.ftc.Gyro.ADAFruitIMU;
-import org.firstinspires.ftc.bot.TestBedBot;
 import org.firstinspires.ftc.bot.WorkingBot;
-import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 /**
  * Created by sambl on 9/25/2017
@@ -19,9 +13,9 @@ public class teleOp extends CustomTeleOp
     public WorkingBot bot = new WorkingBot();
 
     //vars
-    public long prevTime = 0;
-    public int lPrevPos = 0;
-    public int rPrevPos = 0;
+    private long prevTime = 0;
+    private int lPrevPos = 0;
+    private int rPrevPos = 0;
 
     //init
     public void init()

@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 //others
-import org.firstinspires.ftc.AutoUtils.AutoBot;
+import org.firstinspires.ftc.bot.AutoBot;
 import org.firstinspires.ftc.Gyro.ADAFruitIMU;
 
 

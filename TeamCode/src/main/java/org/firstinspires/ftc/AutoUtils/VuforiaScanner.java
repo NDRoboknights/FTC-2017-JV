@@ -8,7 +8,7 @@ import org.firstinspires.ftc.utils.Vuforia;
 
 public class VuforiaScanner {
 
-    TestBedBot bot;
+    TestBedBot bot = new TestBedBot();
     private Vuforia vuforia;
     private VuforiaTrackable relicTemplate;
     RelicRecoveryVuMark vuMark = RelicRecoveryVuMark.from(relicTemplate);

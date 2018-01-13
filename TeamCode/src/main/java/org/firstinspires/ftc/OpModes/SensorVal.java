@@ -2,7 +2,7 @@ package org.firstinspires.ftc.OpModes;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.AutoUtils.AutoExtender;
+import org.firstinspires.ftc.bot.AutoBot;
 import org.firstinspires.ftc.utils.CustomAutonomous;
 
 /**
@@ -11,15 +11,15 @@ import org.firstinspires.ftc.utils.CustomAutonomous;
 @TeleOp(name="sensor", group = "Test")
 public class SensorVal extends OpMode
 {
-    AutoExtender extender = new AutoExtender();
+    AutoBot bot = new AutoBot();
     String AccColor;
-    private double getDist() {return extender.distSensor.getLightDetected();}
+    private double getDist() {return bot.distSensor.getLightDetected();}
 
-    private double getRDist() {return extender.distSensor.getRawLightDetected();}
+    private double getRDist() {return bot.distSensor.getRawLightDetected();}
 
-    private int getBlue() {return extender.colorSensor.blue();}
+    private int getBlue() {return bot.colorSensor.blue();}
 
-    private int getRed() {return extender.colorSensor.red();}
+    private int getRed() {return bot.colorSensor.red();}
 
     private String interpretColor()
     {
@@ -35,14 +35,14 @@ public class SensorVal extends OpMode
         }
         return AccColor;
     }
-    private double getDegrees(){return extender.imu.getValue();}
+    private double getDegrees(){return bot.imu.getValue();}
 
     public void init()
     {
-        extender.colorSensor = hardwareMap.colorSensor.get("cSensor");
-        extender.distSensor = hardwareMap.opticalDistanceSensor.get("ods");
-        extender.distSensor.enableLed(true);
-        extender.colorSensor.enableLed(true);
+        bot.colorSensor = hardwareMap.colorSensor.get("cSensor");
+        bot.distSensor = hardwareMap.opticalDistanceSensor.get("ods");
+        bot.distSensor.enableLed(true);
+        bot.colorSensor.enableLed(true);
     }
     public void loop()
     {
@@ -50,7 +50,7 @@ public class SensorVal extends OpMode
         telemetry.addData("Blue: ", getBlue());
         telemetry.addData("Red: ", getRed());
         telemetry.addData("interpreted color: ", interpretColor());
-        telemetry.addData("ODS Status: ", extender.distSensor.status());
+        telemetry.addData("ODS Status: ", bot.distSensor.status());
         telemetry.addData("ODS Norm: ", getDist());
         telemetry.addData("ODS Raw: ", getRDist());
         telemetry.update();

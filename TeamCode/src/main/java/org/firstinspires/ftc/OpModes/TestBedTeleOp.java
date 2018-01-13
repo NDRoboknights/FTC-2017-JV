@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.bot.TestBedBot;
 import org.firstinspires.ftc.utils.Utilities;
 
-@TeleOp(name="TestBed: Tele", group = "teleOp")
+//@TeleOp(name="TestBed: Tele", group = "teleOp")
 public class TestBedTeleOp extends CustomTeleOp
 {
     TestBedBot bot = new TestBedBot();

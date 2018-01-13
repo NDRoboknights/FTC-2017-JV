@@ -1,8 +1,7 @@
 package org.firstinspires.ftc.AutoUtils;
+import org.firstinspires.ftc.bot.AutoBot;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.utils.Direction;
 
-import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 import org.firstinspires.ftc.utils.CustomAutonomous;
 /**
@@ -11,7 +10,7 @@ import org.firstinspires.ftc.utils.CustomAutonomous;
 
 public class Jewel {
     private Telemetry telemetry;
-    private AutoExtender extender;
+    private AutoBot extender;
     private String AccColor = "";
     public Jewel(Telemetry telemetry){
         this.telemetry = telemetry;

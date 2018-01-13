@@ -18,7 +18,6 @@ public class TestBedBot extends Bot
     public Servo cServo;
     public DcMotor forkUp;
     public ADAFruitIMU imu;
-    PIDInput pidInput;
     public PIDCoefficients pidc;
     @Override
     public void init(HardwareMap hMap)

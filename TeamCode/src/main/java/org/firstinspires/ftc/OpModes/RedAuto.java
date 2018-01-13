@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 //PID
-import org.firstinspires.ftc.AutoUtils.AutoExtender;
+import org.firstinspires.ftc.bot.AutoBot;
 import org.firstinspires.ftc.AutoUtils.VuforiaScanner;
 import org.firstinspires.ftc.Gyro.ADAFruitIMU;
 
@@ -22,7 +22,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
 @Autonomous(name="RedAuto", group="testGroup")
 public class RedAuto extends LinearOpMode
 {
-    AutoExtender extender = new AutoExtender();
+    AutoBot extender = new AutoBot();
 
     public void runOpMode() throws InterruptedException
     {
