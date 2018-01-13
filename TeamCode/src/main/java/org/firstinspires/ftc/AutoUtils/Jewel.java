@@ -1,4 +1,6 @@
 package org.firstinspires.ftc.AutoUtils;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+
 import org.firstinspires.ftc.bot.AutoBot;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import java.util.concurrent.TimeUnit;
@@ -9,10 +11,12 @@ import org.firstinspires.ftc.utils.CustomAutonomous;
 
 public class Jewel {
     private Telemetry telemetry;
+    private HardwareMap hardwareMap;
     private AutoBot bot = new AutoBot();
     private String AccColor = "";
-    public Jewel(Telemetry telemetry){
+    public Jewel(Telemetry telemetry, HardwareMap hardwareMap){
         this.telemetry = telemetry;
+        this.hardwareMap = hardwareMap;
     }
     public int getBlue(){return bot.colorSensor.blue();}
     public int getRed(){return bot.colorSensor.red();}
@@ -40,85 +44,85 @@ public class Jewel {
     public void altknock(String team) throws InterruptedException {
         AccColor = interpretColor();
         if(AccColor.equals("blue") && team.equals("red")){
-            bot.lMotor.setPower(-1);
-            bot.rMotor.setPower(-1);
-            telemetry.addData("C Servo Pos: ", bot.CServo.getPosition());
-            telemetry.addData("L Motor Pos: ", bot.lMotor.getPower());
-            telemetry.addData("R Motor Pos: ", bot.rMotor.getPower());
+            bot.leftMotor.setPower(-1);
+            bot.rightMotor.setPower(-1);
+            telemetry.addData("C Servo Pos: ", bot.cServo.getPosition());
+            telemetry.addData("L Motor Pos: ", bot.leftMotor.getPower());
+            telemetry.addData("R Motor Pos: ", bot.rightMotor.getPower());
             telemetry.update();
             TimeUnit.SECONDS.wait(200);
-            bot.CServo.setPosition(0.2);
-            telemetry.addData("C Servo Pos: ", bot.CServo.getPosition());
-            telemetry.addData("L Motor Pos: ", bot.lMotor.getPower());
-            telemetry.addData("R Motor Pos: ", bot.rMotor.getPower());
+            bot.cServo.setPosition(0.2);
+            telemetry.addData("C Servo Pos: ", bot.cServo.getPosition());
+            telemetry.addData("L Motor Pos: ", bot.leftMotor.getPower());
+            telemetry.addData("R Motor Pos: ", bot.rightMotor.getPower());
             telemetry.update();
             TimeUnit.SECONDS.wait(600);
-            bot.lMotor.setPower(0);
-            bot.rMotor.setPower(0);
-            telemetry.addData("C Servo Pos: ", bot.CServo.getPosition());
-            telemetry.addData("L Motor Pos: ", bot.lMotor.getPower());
-            telemetry.addData("R Motor Pos: ", bot.rMotor.getPower());
+            bot.leftMotor.setPower(0);
+            bot.rightMotor.setPower(0);
+            telemetry.addData("C Servo Pos: ", bot.cServo.getPosition());
+            telemetry.addData("L Motor Pos: ", bot.leftMotor.getPower());
+            telemetry.addData("R Motor Pos: ", bot.rightMotor.getPower());
             telemetry.update();
         }else if(AccColor.equals("blue") && team.equals("blue")){
-            bot.lMotor.setPower(1);
-            bot.rMotor.setPower(1);
-            telemetry.addData("C Servo Pos: ", bot.CServo.getPosition());
-            telemetry.addData("L Motor Pos: ", bot.lMotor.getPower());
-            telemetry.addData("R Motor Pos: ", bot.rMotor.getPower());
+            bot.leftMotor.setPower(1);
+            bot.rightMotor.setPower(1);
+            telemetry.addData("C Servo Pos: ", bot.cServo.getPosition());
+            telemetry.addData("L Motor Pos: ", bot.leftMotor.getPower());
+            telemetry.addData("R Motor Pos: ", bot.rightMotor.getPower());
             telemetry.update();
             TimeUnit.SECONDS.wait(200);
-            bot.CServo.setPosition(0.2);
-            telemetry.addData("C Servo Pos: ", bot.CServo.getPosition());
-            telemetry.addData("L Motor Pos: ", bot.lMotor.getPower());
-            telemetry.addData("R Motor Pos: ", bot.rMotor.getPower());
+            bot.cServo.setPosition(0.2);
+            telemetry.addData("C Servo Pos: ", bot.cServo.getPosition());
+            telemetry.addData("L Motor Pos: ", bot.leftMotor.getPower());
+            telemetry.addData("R Motor Pos: ", bot.rightMotor.getPower());
             telemetry.update();
             TimeUnit.SECONDS.wait(600);
-            bot.rMotor.setPower(0);
-            bot.lMotor.setPower(0);
-            telemetry.addData("C Servo Pos: ", bot.CServo.getPosition());
-            telemetry.addData("L Motor Pos: ", bot.lMotor.getPower());
-            telemetry.addData("R Motor Pos: ", bot.rMotor.getPower());
+            bot.rightMotor.setPower(0);
+            bot.leftMotor.setPower(0);
+            telemetry.addData("C Servo Pos: ", bot.cServo.getPosition());
+            telemetry.addData("L Motor Pos: ", bot.leftMotor.getPower());
+            telemetry.addData("R Motor Pos: ", bot.rightMotor.getPower());
             telemetry.update();
         }
         if(AccColor.equals("red") && team.equals("blue")){
-            bot.lMotor.setPower(-1);
-            bot.rMotor.setPower(-1);
-            telemetry.addData("C Servo Pos: ", bot.CServo.getPosition());
-            telemetry.addData("L Motor Pos: ", bot.lMotor.getPower());
-            telemetry.addData("R Motor Pos: ", bot.rMotor.getPower());
+            bot.leftMotor.setPower(-1);
+            bot.rightMotor.setPower(-1);
+            telemetry.addData("C Servo Pos: ", bot.cServo.getPosition());
+            telemetry.addData("L Motor Pos: ", bot.leftMotor.getPower());
+            telemetry.addData("R Motor Pos: ", bot.rightMotor.getPower());
             telemetry.update();
             TimeUnit.SECONDS.wait(200);
-            bot.CServo.setPosition(0.2);
-            telemetry.addData("C Servo Pos: ", bot.CServo.getPosition());
-            telemetry.addData("L Motor Pos: ", bot.lMotor.getPower());
-            telemetry.addData("R Motor Pos: ", bot.rMotor.getPower());
+            bot.cServo.setPosition(0.2);
+            telemetry.addData("C Servo Pos: ", bot.cServo.getPosition());
+            telemetry.addData("L Motor Pos: ", bot.leftMotor.getPower());
+            telemetry.addData("R Motor Pos: ", bot.rightMotor.getPower());
             telemetry.update();
             TimeUnit.SECONDS.wait(600);
-            bot.rMotor.setPower(0);
-            bot.lMotor.setPower(0);
-            telemetry.addData("C Servo Pos: ", bot.CServo.getPosition());
-            telemetry.addData("L Motor Pos: ", bot.lMotor.getPower());
-            telemetry.addData("R Motor Pos: ", bot.rMotor.getPower());
+            bot.rightMotor.setPower(0);
+            bot.leftMotor.setPower(0);
+            telemetry.addData("C Servo Pos: ", bot.cServo.getPosition());
+            telemetry.addData("L Motor Pos: ", bot.leftMotor.getPower());
+            telemetry.addData("R Motor Pos: ", bot.rightMotor.getPower());
             telemetry.update();
         }else if(AccColor.equals("red") && team.equals("red")){
-            bot.lMotor.setPower(1);
-            bot.rMotor.setPower(1);
-            telemetry.addData("C Servo Pos: ", bot.CServo.getPosition());
-            telemetry.addData("L Motor Pos: ", bot.lMotor.getPower());
-            telemetry.addData("R Motor Pos: ", bot.rMotor.getPower());
+            bot.leftMotor.setPower(1);
+            bot.rightMotor.setPower(1);
+            telemetry.addData("C Servo Pos: ", bot.cServo.getPosition());
+            telemetry.addData("L Motor Pos: ", bot.leftMotor.getPower());
+            telemetry.addData("R Motor Pos: ", bot.rightMotor.getPower());
             telemetry.update();
             TimeUnit.SECONDS.wait(200);
-            bot.CServo.setPosition(0.2);
-            telemetry.addData("C Servo Pos: ", bot.CServo.getPosition());
-            telemetry.addData("L Motor Pos: ", bot.lMotor.getPower());
-            telemetry.addData("R Motor Pos: ", bot.rMotor.getPower());
+            bot.cServo.setPosition(0.2);
+            telemetry.addData("C Servo Pos: ", bot.cServo.getPosition());
+            telemetry.addData("L Motor Pos: ", bot.leftMotor.getPower());
+            telemetry.addData("R Motor Pos: ", bot.rightMotor.getPower());
             telemetry.update();
             TimeUnit.SECONDS.wait(600);
-            bot.rMotor.setPower(0);
-            bot.lMotor.setPower(0);
-            telemetry.addData("C Servo Pos: ", bot.CServo.getPosition());
-            telemetry.addData("L Motor Pos: ", bot.lMotor.getPower());
-            telemetry.addData("R Motor Pos: ", bot.rMotor.getPower());
+            bot.rightMotor.setPower(0);
+            bot.leftMotor.setPower(0);
+            telemetry.addData("C Servo Pos: ", bot.cServo.getPosition());
+            telemetry.addData("L Motor Pos: ", bot.leftMotor.getPower());
+            telemetry.addData("R Motor Pos: ", bot.rightMotor.getPower());
             telemetry.update();
         }
     }

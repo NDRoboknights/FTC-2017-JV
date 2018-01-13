@@ -17,12 +17,12 @@ import org.firstinspires.ftc.Gyro.ADAFruitIMU;
 public class BlueAuto extends LinearOpMode
 {
     AutoBot bot = new AutoBot();
-    Jewel jewel = new Jewel(telemetry);
+    Jewel jewel = new Jewel(telemetry, hardwareMap);
     public void runOpMode() throws InterruptedException
     {
         //motors
-        bot.rMotor = hardwareMap.dcMotor.get("rMotor");
-        bot.lMotor = hardwareMap.dcMotor.get("lMotor");
+        bot.rightMotor = hardwareMap.dcMotor.get("rightMotor");
+        bot.leftMotor = hardwareMap.dcMotor.get("leftMotor");
 
         //sensors
         bot.colorSensor = hardwareMap.colorSensor.get("cSensor");
@@ -30,7 +30,7 @@ public class BlueAuto extends LinearOpMode
         //servos
         bot.leftClamp = hardwareMap.servo.get("leftClamp");
         bot.rightClamp = hardwareMap.servo.get("rightClamp");
-        bot.CServo =  hardwareMap.servo.get("cServo");
+        bot.cServo =  hardwareMap.servo.get("cServo");
 
         //bot.imu
         bot.imu = new ADAFruitIMU(hardwareMap, "imu");
@@ -51,11 +51,11 @@ public class BlueAuto extends LinearOpMode
 //            while(bot.vuMarkTrue == null){
 //                bot.vuMarkTrue = bot.getVuMark.getMark();
 //            }
-//            bot.lMotor.setPower(1);
-//            bot.rMotor.setPower(1);
+//            bot.leftMotor.setPower(1);
+//            bot.rightMotor.setPower(1);
 //            TimeUnit.SECONDS.sleep(1);
-//              bot.lMotor.setPower(0);
-//              bot.rMotor.setPower(0);
+//              bot.leftMotor.setPower(0);
+//              bot.rightMotor.setPower(0);
 //            CryptoBox.redRun(bot.bot,bot.vuMarkTrue);
         }
     }

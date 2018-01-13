@@ -2,6 +2,7 @@ package org.firstinspires.ftc.bot;
 
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -21,12 +22,13 @@ import org.firstinspires.ftc.utils.StatusChecker;
  * Created by sambl on 12/19/2017.
  */
 
-public class AutoBot
+public class AutoBot extends Bot
 {
     private TestBedBot bot = new TestBedBot();
     //motors
-    public DcMotor rMotor;
-    public DcMotor lMotor;
+    public DcMotor rightMotor;
+    public DcMotor leftMotor;
+    public DcMotor forkUp;
 
     //sensors
     public OpticalDistanceSensor distSensor;
@@ -35,7 +37,7 @@ public class AutoBot
     //servo
     public Servo leftClamp;
     public Servo rightClamp;
-    public Servo CServo;
+    public Servo cServo;
 
     //vuforia
     public VuforiaScanner scanner;
@@ -49,7 +51,22 @@ public class AutoBot
     //pid
     private PIDController pidController = new PIDController(imu, bot.pidc);
     public PIDFunctions func = new PIDFunctions(bot, pidController);
+    public void init(HardwareMap hMap){
+        this.hardwareMap = hMap;
 
+        leftMotor = hMap.dcMotor.get("lMotor");
+        rightMotor = hMap.dcMotor.get("rMotor");
+        leftMotor.setDirection(DcMotor.Direction.REVERSE);
 
-    private Telemetry telemetry = null;
+        forkUp = hMap.dcMotor.get("forkupdn");
+
+        leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+        leftClamp = hMap.servo.get("leftClamp");
+        rightClamp = hMap.servo.get("rightClamp");
+        cServo = hMap.servo.get("cServo");
+
+        colorSensor = hMap.colorSensor.get("cSensor");
+    }
 }

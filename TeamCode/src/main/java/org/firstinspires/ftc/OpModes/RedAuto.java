@@ -15,19 +15,19 @@ import org.firstinspires.ftc.bot.AutoBot;
 public class RedAuto extends LinearOpMode
 {
     AutoBot bot = new AutoBot();
-    Jewel jewel = new Jewel(telemetry);
+    Jewel jewel = new Jewel(telemetry, hardwareMap);
     public void runOpMode() throws InterruptedException
     {
         //motors
-        bot.rMotor = hardwareMap.dcMotor.get("rMotor");
-        bot.rMotor = hardwareMap.dcMotor.get("rMotor");
+        bot.rightMotor = hardwareMap.dcMotor.get("rightMotor");
+        bot.rightMotor = hardwareMap.dcMotor.get("rightMotor");
 
         //sensor
         bot.colorSensor = hardwareMap.colorSensor.get("cSensor");
         //servo
         bot.leftClamp = hardwareMap.servo.get("leftClamp");
         bot.rightClamp = hardwareMap.servo.get("rightClamp");
-        bot.CServo =  hardwareMap.servo.get("cServo");
+        bot.cServo =  hardwareMap.servo.get("cServo");
 
         waitForStart();
 

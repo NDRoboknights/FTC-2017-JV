@@ -14,7 +14,7 @@ public class goUntil
     public void moveTo(int distincm)
     {
         //motors
-        bot.rMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        bot.rightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         double distance = bot.distSensor.getLightDetected();
         double rawDist = bot.distSensor.getRawLightDetected();
         double dist = (distance + rawDist) / 2;
@@ -23,12 +23,12 @@ public class goUntil
             distance = bot.distSensor.getLightDetected();
             rawDist = bot.distSensor.getRawLightDetected();
             dist = (distance + rawDist) / 2;
-            bot.lMotor.setPower(-1);
-            bot.rMotor.setPower(1);
+            bot.leftMotor.setPower(-1);
+            bot.rightMotor.setPower(1);
             if (dist <= distincm)
             {
-                bot.lMotor.setPower(0);
-                bot.rMotor.setPower(0);
+                bot.leftMotor.setPower(0);
+                bot.rightMotor.setPower(0);
                 break;
             }
         }
