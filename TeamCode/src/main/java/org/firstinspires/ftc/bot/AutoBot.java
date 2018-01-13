@@ -23,9 +23,7 @@ import org.firstinspires.ftc.utils.StatusChecker;
 
 public class AutoBot
 {
-    //bot
-    public TestBedBot bot = new TestBedBot();
-
+    private TestBedBot bot = new TestBedBot();
     //motors
     public DcMotor rMotor;
     public DcMotor lMotor;
@@ -54,9 +52,4 @@ public class AutoBot
 
 
     private Telemetry telemetry = null;
-    //FUNC
-    public org.firstinspires.ftc.AutoUtils.Jewel Jewel = new Jewel(telemetry);
-    public goUntil go = new goUntil();
-    public StatusChecker sChecker;
-
 }

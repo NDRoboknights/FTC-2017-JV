@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 //others
+import org.firstinspires.ftc.AutoUtils.Jewel;
 import org.firstinspires.ftc.bot.AutoBot;
 import org.firstinspires.ftc.Gyro.ADAFruitIMU;
 
@@ -15,47 +16,47 @@ import org.firstinspires.ftc.Gyro.ADAFruitIMU;
 @Autonomous(name="BlueAuto", group="testGroup")
 public class BlueAuto extends LinearOpMode
 {
-    AutoBot extender = new AutoBot();
-
+    AutoBot bot = new AutoBot();
+    Jewel jewel = new Jewel(telemetry);
     public void runOpMode() throws InterruptedException
     {
         //motors
-        extender.rMotor = hardwareMap.dcMotor.get("rMotor");
-        extender.lMotor = hardwareMap.dcMotor.get("lMotor");
+        bot.rMotor = hardwareMap.dcMotor.get("rMotor");
+        bot.lMotor = hardwareMap.dcMotor.get("lMotor");
 
         //sensors
-        extender.distSensor = hardwareMap.opticalDistanceSensor.get("ods");
-        extender.colorSensor = hardwareMap.colorSensor.get("cSensor");
+        bot.colorSensor = hardwareMap.colorSensor.get("cSensor");
+        
         //servos
-        extender.leftClamp = hardwareMap.servo.get("leftClamp");
-        extender.rightClamp = hardwareMap.servo.get("rightClamp");
-        extender.CServo =  hardwareMap.servo.get("cServo");
+        bot.leftClamp = hardwareMap.servo.get("leftClamp");
+        bot.rightClamp = hardwareMap.servo.get("rightClamp");
+        bot.CServo =  hardwareMap.servo.get("cServo");
 
-        //extender.imu
-        extender.imu = new ADAFruitIMU(hardwareMap, "imu");
+        //bot.imu
+        bot.imu = new ADAFruitIMU(hardwareMap, "imu");
 
         waitForStart();
 
         //init
-        extender.rightClamp.setPosition(0.1);
-        extender.leftClamp.setPosition(1);
+        bot.rightClamp.setPosition(0.1);
+        bot.leftClamp.setPosition(1);
 
-        extender.rightClamp.setPosition(0.5);
-        extender.leftClamp.setPosition(0.5);
+        bot.rightClamp.setPosition(0.5);
+        bot.leftClamp.setPosition(0.5);
         while (opModeIsActive()){
-            extender.Jewel.altknock("blue");
+            jewel.altknock("blue");
 
-//            extender.go.moveTo(10);
-//            extender.vuMarkTrue = extender.getVuMark.getMark();
-//            while(extender.vuMarkTrue == null){
-//                extender.vuMarkTrue = extender.getVuMark.getMark();
+//            bot.go.moveTo(10);
+//            bot.vuMarkTrue = bot.getVuMark.getMark();
+//            while(bot.vuMarkTrue == null){
+//                bot.vuMarkTrue = bot.getVuMark.getMark();
 //            }
-//            extender.lMotor.setPower(1);
-//            extender.rMotor.setPower(1);
+//            bot.lMotor.setPower(1);
+//            bot.rMotor.setPower(1);
 //            TimeUnit.SECONDS.sleep(1);
-//              extender.lMotor.setPower(0);
-//              extender.rMotor.setPower(0);
-//            CryptoBox.redRun(extender.bot,extender.vuMarkTrue);
+//              bot.lMotor.setPower(0);
+//              bot.rMotor.setPower(0);
+//            CryptoBox.redRun(bot.bot,bot.vuMarkTrue);
         }
     }
 }

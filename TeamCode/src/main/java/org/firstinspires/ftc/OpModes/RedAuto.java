@@ -2,6 +2,8 @@ package org.firstinspires.ftc.OpModes;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+
+import org.firstinspires.ftc.AutoUtils.Jewel;
 import org.firstinspires.ftc.bot.AutoBot;
 
 
@@ -13,7 +15,7 @@ import org.firstinspires.ftc.bot.AutoBot;
 public class RedAuto extends LinearOpMode
 {
     AutoBot bot = new AutoBot();
-
+    Jewel jewel = new Jewel(telemetry);
     public void runOpMode() throws InterruptedException
     {
         //motors
@@ -21,7 +23,6 @@ public class RedAuto extends LinearOpMode
         bot.rMotor = hardwareMap.dcMotor.get("rMotor");
 
         //sensor
-//        bot.distSensor = hardwareMap.opticalDistanceSensor.get("ods");
         bot.colorSensor = hardwareMap.colorSensor.get("cSensor");
         //servo
         bot.leftClamp = hardwareMap.servo.get("leftClamp");
@@ -38,7 +39,7 @@ public class RedAuto extends LinearOpMode
 
         //could be 0.1 based on orientation
         while (opModeIsActive()){
-            bot.Jewel.altknock("red");
+            jewel.altknock("red");
         }
     }
 }
