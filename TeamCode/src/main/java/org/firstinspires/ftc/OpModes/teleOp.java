@@ -1,4 +1,3 @@
-//stuff that java did and i have no clue why
 package org.firstinspires.ftc.OpModes;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -16,6 +15,8 @@ public class teleOp extends CustomTeleOp
     private long prevTime = 0;
     private int lPrevPos = 0;
     private int rPrevPos = 0;
+    private double rightPower = 0;
+    private double leftPower = 0;
 
     //init
     public void init()
@@ -41,14 +42,11 @@ public class teleOp extends CustomTeleOp
 
         double lSpeed = Math.abs(dLPos/dTime);
         double rSpeed = Math.abs(dRPos/dTime);
-
         //joysticks
-        double leftPower = gamepad1.left_stick_y;
-        double rightPower = gamepad1.right_stick_y;
 
         //left
-        if(Math.abs(leftPower) > JOYSTICK_THRESHOLD) {
-            leftPower = scaleInput(leftPower);
+        if(Math.abs(gamepad1.left_stick_y) > JOYSTICK_THRESHOLD) {
+            leftPower = scaleInput(gamepad1.left_stick_y);
             bot.leftMotor.setPower(leftPower);
         } else
             {
@@ -56,8 +54,8 @@ public class teleOp extends CustomTeleOp
         }
 
         //right
-        if(Math.abs(rightPower) > JOYSTICK_THRESHOLD) {
-            rightPower = scaleInput(rightPower);
+        if(Math.abs(gamepad1.right_stick_y) > JOYSTICK_THRESHOLD) {
+            rightPower = scaleInput(gamepad1.right_stick_y);
             bot.rightMotor.setPower(rightPower);
         } else
             {
@@ -98,6 +96,8 @@ public class teleOp extends CustomTeleOp
         telemetry.addData("L Speed: ", lSpeed);
         telemetry.addData("R Speed: ", rSpeed);
         telemetry.addData("LeftStickY: ", gamepad1.left_stick_y);
+        telemetry.addData("L Pow: ", bot.leftMotor.getPower());
+        telemetry.addData("R Pow: ", bot.rightMotor.getPower());
         telemetry.addData("RightStickY: ", gamepad1.right_stick_y);
         telemetry.addData("ForkUpP: ", bot.forkUp.getPower());
         telemetry.addData("RightClampPos: ", bot.rightClamp.getPosition());
