@@ -93,7 +93,6 @@ public class teleOp extends CustomTeleOp
         }
 
         //telemetry
-//        telemetry.addData("orientation: ", imu.getValue());
         telemetry.addData("L Position: ", lPos);
         telemetry.addData("R Position: ", rPos);
         telemetry.addData("L Speed: ", lSpeed);
@@ -101,8 +100,6 @@ public class teleOp extends CustomTeleOp
         telemetry.addData("LeftStickY: ", gamepad1.left_stick_y);
         telemetry.addData("RightStickY: ", gamepad1.right_stick_y);
         telemetry.addData("ForkUpP: ", bot.forkUp.getPower());
-//        telemetry.addData("B: ", gamepad1.b);
-//        telemetry.addData("X: ", gamepad1.x);
         telemetry.addData("RightClampPos: ", bot.rightClamp.getPosition());
         telemetry.addData("LeftClampPos: ", bot.leftClamp.getPosition());
         telemetry.update();
