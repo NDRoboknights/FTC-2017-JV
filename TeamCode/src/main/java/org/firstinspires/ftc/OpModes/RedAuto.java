@@ -27,7 +27,7 @@ public class RedAuto extends LinearOpMode
         bot.leftClamp = hardwareMap.servo.get("leftClamp");
         bot.rightClamp = hardwareMap.servo.get("rightClamp");
         bot.CServo =  hardwareMap.servo.get("cServo");
-        
+
         waitForStart();
 
         //init
