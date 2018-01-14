@@ -17,6 +17,7 @@ public class RedAuto extends LinearOpMode
 
         while (opModeIsActive()){
             Jewel jewel = new Jewel(telemetry, hardwareMap);
+            telemetry.addData("interpreted color: ", jewel.interpretColor());
 
             jewel.altknock("red");
         }

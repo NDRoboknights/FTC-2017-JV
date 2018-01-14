@@ -10,7 +10,6 @@ import org.firstinspires.ftc.AutoUtils.Jewel;
 @Autonomous(name="BlueAuto", group="testGroup")
 public class BlueAuto extends LinearOpMode
 {
-
     public void runOpMode() throws InterruptedException
     {
 
@@ -18,6 +17,8 @@ public class BlueAuto extends LinearOpMode
 
         while (opModeIsActive()){
             Jewel jewel = new Jewel(telemetry, hardwareMap);
+            telemetry.addData("interpreted color: ", jewel.interpretColor());
+
             jewel.altknock("blue");
         }
     }
