@@ -35,7 +35,6 @@ public class SensorVal extends OpMode
         }
         return AccColor;
     }
-//    private double getDegrees(){return bot.imu.getValue();}
 
     public void init()
     {
@@ -46,7 +45,6 @@ public class SensorVal extends OpMode
     }
     public void loop()
     {
-//        telemetry.addData("Degrees: ", getDegrees());
         telemetry.addData("Blue: ", getBlue());
         telemetry.addData("Red: ", getRed());
         telemetry.addData("interpreted color: ", interpretColor());
