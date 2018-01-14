@@ -1,27 +1,25 @@
 package org.firstinspires.ftc.utils;
-
-/**
- * Created by sambl on 12/1/2017.
- */
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 /**
  * Useful functions including <code>delay(...)</code> and <code>scalePower(...)</code>
  */
-import com.qualcomm.robotcore.hardware.DcMotor;
 public class Utilities
 {
+    final static Object monitor = new Object();
     /**
      * Waits untils <code>sChecker.checkStatus()</code> returns false.
      * @param sChecker Status Checker
      */
     public static void delay(StatusChecker sChecker)
     {
-        Object monitor = new Object();
-        while(sChecker.checkStatus()) {
-            try {
-                monitor.wait(1);
-            } catch (InterruptedException ignored) {
+        synchronized (monitor) {
+            while (sChecker.checkStatus()) {
+                try {
+                    monitor.wait(1);
+                } catch (InterruptedException ignored) {
 
+                }
             }
         }
     }
@@ -32,16 +30,17 @@ public class Utilities
      */
     public static void delay(long time)
     {
-        Object monitor = new Object();
-        try {
-            monitor.wait(time);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        synchronized (monitor) {
+            try {
+                monitor.wait(time);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     /**
-     * If any power is over MAX (1.0), will divide through by the max power. Else, returns original
+     * If any power is over by the MAX (1.0), will divide through by the max power. Else, returns original
      * powers.
      * @param doubles All powers to scale with each other
      * @return An array of the new powers corresponding in order with original powers
@@ -67,6 +66,11 @@ public class Utilities
 
         return doubles;
     }
+
+    /**
+     * For every motor in <code>motors</code>, stops and resets encoder values
+     * @param motors motors to reset encoder values
+     */
     public static void resetEncoderValues(DcMotor... motors)
     {
         for(DcMotor m : motors)
