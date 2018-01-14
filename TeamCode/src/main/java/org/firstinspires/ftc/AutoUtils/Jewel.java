@@ -25,6 +25,7 @@ public class Jewel
     private DcMotor LMotor;
     private ColorSensor colorSensor;
     private StatusChecker sChecker;
+
     public Jewel(Telemetry telemetry, HardwareMap hMap)
     {
         this.telemetry = telemetry;
@@ -34,8 +35,8 @@ public class Jewel
         RMotor = hMap.dcMotor.get("rightMotor");
     }
 
-    public int getBlue(){return colorSensor.blue();}
-    public int getRed(){return colorSensor.red();}
+    private int getBlue(){return colorSensor.blue();}
+    private int getRed(){return colorSensor.red();}
 
     public String interpretColor(){
             if(getBlue() > CustomAutonomous.COLOR_THRESHOLD && getRed()<CustomAutonomous.COLOR_THRESHOLD)
@@ -59,14 +60,14 @@ public class Jewel
 
     public void altknock(String team) throws InterruptedException
     {
-        telemetry.addData("Status: ", Status.BEGINNING);
+        telemetry.addData("Jewel Status", Status.BEGINNING);
         telemetry.update();
         AccColor = interpretColor();
         telemetry.addData("Color: ", AccColor);
         telemetry.update();
 
         if(AccColor.equals("blue") && team.equals("red")){
-            telemetry.addData("Status: ", Status.WORKING);
+            telemetry.addData("Jewel Status", Status.WORKING);
             telemetry.update();
             LMotor.setPower(NewDirection.BACKWARD.v);
             RMotor.setPower(NewDirection.BACKWARD.v);
@@ -75,11 +76,11 @@ public class Jewel
             Utilities.delay(600);
             LMotor.setPower(0);
             RMotor.setPower(0);
-            telemetry.addData("Status: ", Status.FINISHED);
+            telemetry.addData("Jewel Status", Status.FINISHED);
             telemetry.update();
 
         }else if(AccColor.equals("blue") && team.equals("blue")){
-            telemetry.addData("Status: ", Status.WORKING);
+            telemetry.addData("Jewel Status", Status.WORKING);
             telemetry.update();
             LMotor.setPower(NewDirection.FORWARD.v);
             RMotor.setPower(NewDirection.FORWARD.v);
@@ -88,11 +89,11 @@ public class Jewel
             Utilities.delay(600);
             RMotor.setPower(0);
             LMotor.setPower(0);
-            telemetry.addData("Status: ", Status.FINISHED);
+            telemetry.addData("Jewel Status", Status.FINISHED);
             telemetry.update();
         }
         if(AccColor.equals("red") && team.equals("blue")){
-            telemetry.addData("Status: ", Status.WORKING);
+            telemetry.addData("Jewel Status", Status.WORKING);
             telemetry.update();
             LMotor.setPower(NewDirection.BACKWARD.v);
             RMotor.setPower(NewDirection.BACKWARD.v);
@@ -101,10 +102,10 @@ public class Jewel
             Utilities.delay(600);
             RMotor.setPower(0);
             LMotor.setPower(0);
-            telemetry.addData("Status: ", Status.FINISHED);
+            telemetry.addData("Jewel Status", Status.FINISHED);
             telemetry.update();
         }else if(AccColor.equals("red") && team.equals("red")){
-            telemetry.addData("Status: ", Status.WORKING);
+            telemetry.addData("Jewel Status", Status.WORKING);
             telemetry.update();
             LMotor.setPower(NewDirection.FORWARD.v);
             RMotor.setPower(NewDirection.FORWARD.v);
@@ -113,7 +114,7 @@ public class Jewel
             Utilities.delay(600);
             RMotor.setPower(0);
             LMotor.setPower(0);
-            telemetry.addData("Status: ", Status.FINISHED);
+            telemetry.addData("Jewel Status", Status.FINISHED);
             telemetry.update();
         }
     }
