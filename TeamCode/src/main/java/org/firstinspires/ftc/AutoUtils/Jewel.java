@@ -5,6 +5,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.bot.AutoBot;
+import org.firstinspires.ftc.utils.NewDirection;
+import org.firstinspires.ftc.utils.Status;
 import org.firstinspires.ftc.utils.StatusChecker;
 import org.firstinspires.ftc.utils.Utilities;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
@@ -55,42 +57,64 @@ public class Jewel
             return AccColor;
         }
 
-    public void altknock(String team) throws InterruptedException {
+    public void altknock(String team) throws InterruptedException
+    {
+        telemetry.addData("Status: ", Status.BEGINNING);
+        telemetry.update();
         AccColor = interpretColor();
+        telemetry.addData("Color: ", AccColor);
+        telemetry.update();
+
         if(AccColor.equals("blue") && team.equals("red")){
-            LMotor.setPower(-1);
-            RMotor.setPower(-1);
-            Utilities.delay(1000);
+            telemetry.addData("Status: ", Status.WORKING);
+            telemetry.update();
+            LMotor.setPower(NewDirection.BACKWARD.v);
+            RMotor.setPower(NewDirection.BACKWARD.v);
+            Utilities.delay(400);
             bot.cServo.setPosition(0.2);
+            Utilities.delay(600);
             LMotor.setPower(0);
             RMotor.setPower(0);
-            
+            telemetry.addData("Status: ", Status.FINISHED);
+            telemetry.update();
+
         }else if(AccColor.equals("blue") && team.equals("blue")){
-            LMotor.setPower(1);
-            RMotor.setPower(1);
-            Utilities.delay(1000);
+            telemetry.addData("Status: ", Status.WORKING);
+            telemetry.update();
+            LMotor.setPower(NewDirection.FORWARD.v);
+            RMotor.setPower(NewDirection.FORWARD.v);
+            Utilities.delay(400);
             bot.cServo.setPosition(0.2);
+            Utilities.delay(600);
             RMotor.setPower(0);
             LMotor.setPower(0);
-            
+            telemetry.addData("Status: ", Status.FINISHED);
+            telemetry.update();
         }
         if(AccColor.equals("red") && team.equals("blue")){
-            LMotor.setPower(-1);
-            RMotor.setPower(-1);
-            Utilities.delay(1000);
+            telemetry.addData("Status: ", Status.WORKING);
+            telemetry.update();
+            LMotor.setPower(NewDirection.BACKWARD.v);
+            RMotor.setPower(NewDirection.BACKWARD.v);
+            Utilities.delay(400);
             bot.cServo.setPosition(0.2);
+            Utilities.delay(600);
             RMotor.setPower(0);
             LMotor.setPower(0);
-
-            
+            telemetry.addData("Status: ", Status.FINISHED);
+            telemetry.update();
         }else if(AccColor.equals("red") && team.equals("red")){
-            LMotor.setPower(1);
-            RMotor.setPower(1);
-            Utilities.delay(1000);
+            telemetry.addData("Status: ", Status.WORKING);
+            telemetry.update();
+            LMotor.setPower(NewDirection.FORWARD.v);
+            RMotor.setPower(NewDirection.FORWARD.v);
+            Utilities.delay(400);
             bot.cServo.setPosition(0.2);
+            Utilities.delay(600);
             RMotor.setPower(0);
             LMotor.setPower(0);
-            
+            telemetry.addData("Status: ", Status.FINISHED);
+            telemetry.update();
         }
     }
 }
