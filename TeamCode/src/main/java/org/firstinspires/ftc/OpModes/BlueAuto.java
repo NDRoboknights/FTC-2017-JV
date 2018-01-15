@@ -3,6 +3,8 @@ package org.firstinspires.ftc.OpModes;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.AutoUtils.Jewel;
+import org.firstinspires.ftc.AutoUtils.VuforiaUse;
+import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
 
 /**
  * Created by sambl on 9/26/2017.
@@ -12,13 +14,15 @@ public class BlueAuto extends LinearOpMode
 {
     public void runOpMode() throws InterruptedException
     {
-
+        RelicRecoveryVuMark vuMark;
         waitForStart();
-
+        VuforiaUse vuf = new VuforiaUse(telemetry);
+        Jewel jewel = new Jewel(telemetry, hardwareMap);
+        vuf.scanner.initialize();
         while (opModeIsActive()){
-            Jewel jewel = new Jewel(telemetry, hardwareMap);
+            vuMark=vuf.fullRun();
+            telemetry.addData("VuMark: ", vuMark);
             telemetry.addData("interpreted color: ", jewel.interpretColor());
-
             jewel.altknock("blue");
         }
     }
