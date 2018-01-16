@@ -14,30 +14,52 @@ import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
 public class CryptoBox
 {
     TestBedBot bot = new TestBedBot();
-    private static int target;
-    public void blueRun(TestBedBot bot, RelicRecoveryVuMark vuMark) throws InterruptedException {
+    private int setBlueTarget(RelicRecoveryVuMark vuMark)
+    {
         //For blue, we go from left to right
-        if(vuMark == RelicRecoveryVuMark.LEFT){
+        int target;
+        if(vuMark == RelicRecoveryVuMark.LEFT)
+        {
             target = BlueBox.LEFT.v;
-        } else if(vuMark == RelicRecoveryVuMark.CENTER){
+        } else if(vuMark == RelicRecoveryVuMark.CENTER)
+        {
             target = BlueBox.CENTER.v;
-        }else if(vuMark == RelicRecoveryVuMark.RIGHT){
+        }else if(vuMark == RelicRecoveryVuMark.RIGHT)
+        {
             target = BlueBox.RIGHT.v;
-        }else{
+        }else
+            {
             target = BlueBox.CENTER.v;
         }
+        return target;
+    }
+    private int setRedTarget(RelicRecoveryVuMark vuMark)
+    {
+        //For red, we go from right to left
+        int target;
+
+        if(vuMark == RelicRecoveryVuMark.LEFT)
+        {
+            target = RedBox.LEFT.v;
+        } else if(vuMark == RelicRecoveryVuMark.CENTER)
+        {
+            target = RedBox.CENTER.v;
+        }else if(vuMark == RelicRecoveryVuMark.RIGHT)
+        {
+            target = RedBox.RIGHT.v;
+        }else
+            {
+            target = RedBox.CENTER.v;
+        }
+        return target;
+    }
+    public void blueRun(TestBedBot bot, RelicRecoveryVuMark vuMark)
+    {
+        setBlueTarget(vuMark);
     }
 
-    public static void redRun(TestBedBot bot, RelicRecoveryVuMark vuMark) throws InterruptedException {
-        //For red, we go from right to left
-        if(vuMark == RelicRecoveryVuMark.LEFT){
-            target = RedBox.LEFT.v;
-        } else if(vuMark == RelicRecoveryVuMark.CENTER){
-            target = RedBox.CENTER.v;
-        }else if(vuMark == RelicRecoveryVuMark.RIGHT){
-            target = RedBox.RIGHT.v;
-        }else{
-            target = RedBox.CENTER.v;
-        }
+    public void redRun(TestBedBot bot, RelicRecoveryVuMark vuMark)
+    {
+        setRedTarget(vuMark);
     }
 }
