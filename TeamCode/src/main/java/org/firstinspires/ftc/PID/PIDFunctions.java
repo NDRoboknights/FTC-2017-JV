@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.PID;
 
 import org.firstinspires.ftc.bot.Bot;
-import org.firstinspires.ftc.utils.Direction;
+import org.firstinspires.ftc.enums.Direction;
 import org.firstinspires.ftc.utils.StatusChecker;
 
 import static org.firstinspires.ftc.utils.Utilities.scalePower;

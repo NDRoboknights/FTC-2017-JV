@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.utils;
+package org.firstinspires.ftc.enums;
 
 /**
  * Created by sambl on 1/13/2018.

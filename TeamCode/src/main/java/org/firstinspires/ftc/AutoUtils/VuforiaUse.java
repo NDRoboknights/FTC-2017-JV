@@ -2,7 +2,7 @@ package org.firstinspires.ftc.AutoUtils;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
-import org.firstinspires.ftc.utils.Status;
+import org.firstinspires.ftc.enums.Status;
 
 import java.util.concurrent.TimeUnit;
 
@@ -19,6 +19,7 @@ public class VuforiaUse
     public VuforiaUse(Telemetry telem){
         this.telemetry = telem;
     }
+
     public RelicRecoveryVuMark fullRun()
     {
         telemetry.addData("Vuforia Status: ", Status.INITIALIZED);

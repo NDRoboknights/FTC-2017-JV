@@ -15,14 +15,19 @@ public class BlueAuto extends LinearOpMode
     public void runOpMode() throws InterruptedException
     {
         RelicRecoveryVuMark vuMark;
+
         waitForStart();
+
         VuforiaUse vuf = new VuforiaUse(telemetry);
         Jewel jewel = new Jewel(telemetry, hardwareMap);
+
         vuf.scanner.initialize();
+
         while (opModeIsActive()){
-            vuMark=vuf.fullRun();
-            telemetry.addData("VuMark: ", vuMark);
+            vuMark = vuf.fullRun();
             telemetry.addData("interpreted color: ", jewel.interpretColor());
+            telemetry.addData("VuMark: ", vuMark);
+            telemetry.update();
             jewel.altknock("blue");
         }
     }

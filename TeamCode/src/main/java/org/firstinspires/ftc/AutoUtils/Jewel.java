@@ -3,8 +3,8 @@ package org.firstinspires.ftc.AutoUtils;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.bot.ColorBot;
-import org.firstinspires.ftc.utils.NewDirection;
-import org.firstinspires.ftc.utils.Status;
+import org.firstinspires.ftc.enums.NewDirection;
+import org.firstinspires.ftc.enums.Status;
 import org.firstinspires.ftc.utils.Utilities;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.utils.CustomAutonomous;
