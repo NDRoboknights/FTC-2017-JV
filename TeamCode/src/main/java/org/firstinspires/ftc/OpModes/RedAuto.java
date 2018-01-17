@@ -19,14 +19,14 @@ public class RedAuto extends LinearOpMode
         waitForStart();
 
         Jewel jewel = new Jewel(telemetry, hardwareMap);
-        VuforiaUse vuf = new VuforiaUse(telemetry);
+//        VuforiaUse vuf = new VuforiaUse(telemetry);
 
-        vuf.scanner.initialize();
+//        vuf.scanner.initialize();
 
         while (opModeIsActive()){
-            vuMark = vuf.fullRun();
+//            vuMark = vuf.fullRun();
             telemetry.addData("interpreted color: ", jewel.interpretColor());
-            telemetry.addData("VuMark Seen: ", vuMark);
+//            telemetry.addData("VuMark Seen: ", vuMark);
             telemetry.update();
             jewel.altknock("red");
         }

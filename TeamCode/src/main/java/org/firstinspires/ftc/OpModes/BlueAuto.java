@@ -18,15 +18,16 @@ public class BlueAuto extends LinearOpMode
 
         waitForStart();
 
-        VuforiaUse vuf = new VuforiaUse(telemetry);
+//        VuforiaUse vuf = new VuforiaUse(telemetry);
         Jewel jewel = new Jewel(telemetry, hardwareMap);
 
-        vuf.scanner.initialize();
+//        vuf.scanner.initialize();
 
-        while (opModeIsActive()){
-            vuMark = vuf.fullRun();
+        while (opModeIsActive())
+        {
+//            vuMark = vuf.fullRun();
             telemetry.addData("interpreted color: ", jewel.interpretColor());
-            telemetry.addData("VuMark: ", vuMark);
+//            telemetry.addData("VuMark: ", vuMark);
             telemetry.update();
             jewel.altknock("blue");
         }

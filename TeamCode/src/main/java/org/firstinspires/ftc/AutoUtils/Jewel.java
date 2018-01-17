@@ -9,7 +9,7 @@ import org.firstinspires.ftc.utils.Utilities;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.utils.CustomAutonomous;
 /**
- * Created by sambl on 12/13/2017.
+ * Created by sambl on 12/13/2017
  */
 
 public class Jewel
@@ -17,11 +17,13 @@ public class Jewel
     private Telemetry telemetry;
     private HardwareMap hardwareMap;
     private String AccColor;
-    private ColorBot bot = new ColorBot(hardwareMap);
+    private ColorBot bot = new ColorBot();
+
     public Jewel(Telemetry telemetry, HardwareMap hMap)
     {
         this.telemetry = telemetry;
         this.hardwareMap = hMap;
+        bot.init(hardwareMap);
         
     }
 
@@ -48,7 +50,7 @@ public class Jewel
             return AccColor;
         }
 
-    public void altknock(String team) throws InterruptedException
+    public void altknock(String team)
     {
         telemetry.addData("Status: ", Status.BEGINNING);
         telemetry.update();
@@ -56,7 +58,8 @@ public class Jewel
         telemetry.addData("Color: ", AccColor);
         telemetry.update();
 
-        if(AccColor.equals("blue") && team.equals("red")){
+        if(AccColor.equals("blue") && team.equals("red"))
+        {
             telemetry.addData("Status: ", Status.WORKING);
             telemetry.update();
             bot.LMotor.setPower(NewDirection.BACKWARD.v);
@@ -69,7 +72,9 @@ public class Jewel
             telemetry.addData("Status: ", Status.FINISHED);
             telemetry.update();
 
-        }else if(AccColor.equals("blue") && team.equals("blue")){
+        }
+        else if(AccColor.equals("blue") && team.equals("blue"))
+        {
             telemetry.addData("Status: ", Status.WORKING);
             telemetry.update();
             bot.LMotor.setPower(NewDirection.FORWARD.v);
@@ -82,7 +87,8 @@ public class Jewel
             telemetry.addData("Status: ", Status.FINISHED);
             telemetry.update();
         }
-        if(AccColor.equals("red") && team.equals("blue")){
+        if(AccColor.equals("red") && team.equals("blue"))
+        {
             telemetry.addData("Status: ", Status.WORKING);
             telemetry.update();
             bot.LMotor.setPower(NewDirection.BACKWARD.v);
@@ -94,7 +100,9 @@ public class Jewel
             bot.LMotor.setPower(0);
             telemetry.addData("Status: ", Status.FINISHED);
             telemetry.update();
-        }else if(AccColor.equals("red") && team.equals("red")){
+        }
+        else if(AccColor.equals("red") && team.equals("red"))
+        {
             telemetry.addData("Status: ", Status.WORKING);
             telemetry.update();
             bot.LMotor.setPower(NewDirection.FORWARD.v);

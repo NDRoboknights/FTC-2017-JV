@@ -10,17 +10,15 @@ import com.qualcomm.robotcore.hardware.Servo;
  */
 
 public class ColorBot extends Bot{
-    private HardwareMap hardwareMap;
     public DcMotor LMotor;
     public DcMotor RMotor;
     public ColorSensor colorSensor;
     public Servo cServo;
-    public ColorBot(HardwareMap hMap){
-        this.hardwareMap = hMap;
-    }
-    public void init(HardwareMap hardwareMap){
+
+    public void init(HardwareMap hardwareMap)
+    {
         this.hardwareMap = hardwareMap;
-        cServo = hardwareMap.servo.get("CServo");
+        cServo = hardwareMap.servo.get("cServo");
         colorSensor = hardwareMap.colorSensor.get("cSensor");
         LMotor = hardwareMap.dcMotor.get("leftMotor");
         RMotor = hardwareMap.dcMotor.get("rightMotor");
