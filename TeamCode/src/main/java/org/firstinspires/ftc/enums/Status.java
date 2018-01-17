@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.utils;
+package org.firstinspires.ftc.enums;
 
 /**
  * Created by sambl on 1/13/2018.
@@ -6,7 +6,7 @@ package org.firstinspires.ftc.utils;
 
 public enum Status {
 
-    BEGINNING(1), WORKING(2), FINISHED(3);
+    INITIALIZED(1), BEGINNING(0), WORKING(2), FINISHED(3);
 
     public int v;
     Status(int v){

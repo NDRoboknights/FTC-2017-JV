@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.PID;
 
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.PIDCoefficients;
@@ -9,7 +8,7 @@ import org.firstinspires.ftc.Gyro.ADAFruitIMU;
 import org.firstinspires.ftc.bot.TestBedBot;
 import org.firstinspires.ftc.utils.CustomAutonomous;
 import org.firstinspires.ftc.utils.CycleChecker;
-import org.firstinspires.ftc.utils.Direction;
+import org.firstinspires.ftc.enums.Direction;
 
 import java.util.concurrent.TimeUnit;
 @Disabled

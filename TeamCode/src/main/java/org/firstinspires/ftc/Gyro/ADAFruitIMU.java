@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.Gyro;
 
+import com.qualcomm.hardware.adafruit.AdafruitBNO055IMU;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -18,14 +19,14 @@ import org.firstinspires.ftc.PID.PIDInput;
 public class ADAFruitIMU extends PIDInput
 {
     // The IMU sensor object
-    public BNO055IMU imu;
+    private AdafruitBNO055IMU imu;
 
     public ADAFruitIMU(HardwareMap hMap, String name)
     {
         // Set up the parameters with which we will use our IMU. Note that integration
         // algorithm here just reports accelerations to the logcat log; it doesn't actually
         // provide positional information.
-        BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
+        AdafruitBNO055IMU.Parameters parameters = new AdafruitBNO055IMU.Parameters();
         parameters.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
         parameters.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
         parameters.calibrationDataFile = "AdafruitIMUCalibration.json"; // see the calibration sample opmode
@@ -36,7 +37,7 @@ public class ADAFruitIMU extends PIDInput
         // Retrieve and initialize the IMU. We expect the IMU to be attached to an I2C port
         // on a Core Device Interface Module, configured to be a sensor of type "AdaFruit IMU",
         // and named name.
-        imu = hMap.get(BNO055IMU.class, name);
+        imu = hMap.get(AdafruitBNO055IMU.class, name);
         imu.initialize(parameters);
     }
     public double getValue()
