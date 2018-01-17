@@ -17,7 +17,7 @@ public class BlueAuto extends LinearOpMode
         RelicRecoveryVuMark vuMark;
 
         waitForStart();
-        
+
 //        VuforiaUse vuf = new VuforiaUse(telemetry);
         Jewel jewel = new Jewel(telemetry, hardwareMap);
 
