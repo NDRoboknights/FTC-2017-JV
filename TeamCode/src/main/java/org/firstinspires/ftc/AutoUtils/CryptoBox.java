@@ -5,6 +5,8 @@ package org.firstinspires.ftc.AutoUtils;
  */
 
 
+import com.qualcomm.robotcore.hardware.HardwareMap;
+
 import org.firstinspires.ftc.bot.TestBedBot;
 import org.firstinspires.ftc.enums.cryptobox.BlueBox;
 import org.firstinspires.ftc.enums.cryptobox.RedBox;
@@ -13,8 +15,13 @@ import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
 
 public class CryptoBox
 {
-    TestBedBot bot = new TestBedBot();
-    private int setBlueTarget(RelicRecoveryVuMark vuMark)
+    HardwareMap hardwareMap;
+    private static TestBedBot Tbot = new TestBedBot();
+    public CryptoBox(HardwareMap hMap){
+        this.hardwareMap = hMap;
+        Tbot.init(hMap);
+    }
+    private static int setBlueTarget(RelicRecoveryVuMark vuMark)
     {
         //For blue, we go from left to right
         int target;
@@ -33,7 +40,7 @@ public class CryptoBox
         }
         return target;
     }
-    private int setRedTarget(RelicRecoveryVuMark vuMark)
+    private static int setRedTarget(RelicRecoveryVuMark vuMark)
     {
         //For red, we go from right to left
         int target;
@@ -53,7 +60,7 @@ public class CryptoBox
         }
         return target;
     }
-    public void blueRun(TestBedBot bot, RelicRecoveryVuMark vuMark)
+    public static void blueRun(TestBedBot bot, RelicRecoveryVuMark vuMark)
     {
         setBlueTarget(vuMark);
     }

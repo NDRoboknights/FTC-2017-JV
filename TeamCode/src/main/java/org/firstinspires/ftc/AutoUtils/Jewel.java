@@ -52,6 +52,7 @@ public class Jewel
 
     public void altknock(String team)
     {
+        bot.cServo.setPosition(0.9);
         telemetry.addData("Status: ", Status.BEGINNING);
         telemetry.update();
         AccColor = interpretColor();
@@ -71,8 +72,8 @@ public class Jewel
             bot.RMotor.setPower(0);
             telemetry.addData("Status: ", Status.FINISHED);
             telemetry.update();
-
         }
+
         else if(AccColor.equals("blue") && team.equals("blue"))
         {
             telemetry.addData("Status: ", Status.WORKING);

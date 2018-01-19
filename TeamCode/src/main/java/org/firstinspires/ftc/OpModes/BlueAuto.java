@@ -2,9 +2,14 @@ package org.firstinspires.ftc.OpModes;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+
+import org.firstinspires.ftc.AutoUtils.CryptoBox;
 import org.firstinspires.ftc.AutoUtils.Jewel;
-import org.firstinspires.ftc.AutoUtils.VuforiaUse;
+import org.firstinspires.ftc.AutoUtils.VuforiaScanner;
+import org.firstinspires.ftc.bot.TestBedBot;
 import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by sambl on 9/26/2017.
@@ -14,22 +19,30 @@ public class BlueAuto extends LinearOpMode
 {
     public void runOpMode() throws InterruptedException
     {
-        RelicRecoveryVuMark vuMark;
+        long time = System.nanoTime();
+        RelicRecoveryVuMark vuMark = RelicRecoveryVuMark.UNKNOWN;
 
         waitForStart();
 
-//        VuforiaUse vuf = new VuforiaUse(telemetry);
+        VuforiaScanner scanner = new VuforiaScanner();
         Jewel jewel = new Jewel(telemetry, hardwareMap);
+        CryptoBox box = new CryptoBox(hardwareMap);
+        TestBedBot bot = new TestBedBot();
 
-//        vuf.scanner.initialize();
+        scanner.initialize();
 
         while (opModeIsActive())
         {
-//            vuMark = vuf.fullRun();
-            telemetry.addData("interpreted color: ", jewel.interpretColor());
-//            telemetry.addData("VuMark: ", vuMark);
-            telemetry.update();
+            while(vuMark == RelicRecoveryVuMark.UNKNOWN && TimeUnit.SECONDS.toSeconds(time)<3)
+            {
+                vuMark = scanner.getVuMark();
+                time = System.nanoTime();
+            }
+
             jewel.altknock("blue");
+
+            box.blueRun(bot,vuMark);
+
         }
     }
 }
