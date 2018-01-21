@@ -6,7 +6,7 @@ import org.firstinspires.ftc.team11683.bot.WorkingBot;
 /**
  * Created by sambl on 9/25/2017
  */
-@TeleOp(name = "TankTele", group = "teleOp")
+@TeleOp(name = "TELE", group = "teleOp")
 public class teleOp extends CustomTeleOp
 {
     public WorkingBot bot = new WorkingBot();

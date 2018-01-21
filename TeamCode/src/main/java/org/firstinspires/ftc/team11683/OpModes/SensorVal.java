@@ -8,7 +8,7 @@ import org.firstinspires.ftc.team11683.utils.CustomAutonomous;
 /**
  * Created by sambl on 11/20/2017.
  */
-@TeleOp(name="sensor", group = "Test")
+@TeleOp(name="Sensor", group = "Test")
 public class SensorVal extends OpMode
 {
     AutoBot bot = new AutoBot();

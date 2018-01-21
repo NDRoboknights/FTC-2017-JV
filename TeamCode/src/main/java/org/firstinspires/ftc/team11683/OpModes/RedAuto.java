@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by sambl on 9/26/2017.
  */
-@Autonomous(name="RedAuto", group="testGroup")
+@Autonomous(name="newRedAuto", group="testGroup")
 public class RedAuto extends LinearOpMode
 {
     public void runOpMode() throws InterruptedException
@@ -29,19 +29,19 @@ public class RedAuto extends LinearOpMode
         CryptoBox box = new CryptoBox(telemetry, hardwareMap);
         TestBedBot bot = new TestBedBot();
 
-        scanner.initialize();
+//        scanner.initialize();
 
         while (opModeIsActive())
         {
-            while(vuMark == RelicRecoveryVuMark.UNKNOWN && TimeUnit.SECONDS.toSeconds(time)<3)
-            {
-                vuMark = scanner.getVuMark();
-                time = System.nanoTime();
-            }
+//            while(vuMark == RelicRecoveryVuMark.UNKNOWN && TimeUnit.SECONDS.toSeconds(time)<3)
+//            {
+//                vuMark = scanner.getVuMark();
+//                time = System.nanoTime();
+//            }
 
             jewel.altknock("red");
 
-            box.redRun(vuMark);
+//            box.redRun(vuMark);
 
         }
     }

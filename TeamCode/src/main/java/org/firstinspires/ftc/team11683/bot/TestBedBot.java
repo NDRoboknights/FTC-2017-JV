@@ -32,15 +32,14 @@ public class TestBedBot extends Bot
         pidController = new PIDController(pidInput, pidc);
         pidFunctions = new PIDFunctions(this, pidController);
         this.hardwareMap = hMap;
-        leftMotor = hMap.dcMotor.get("lMotor");
-        rightMotor = hMap.dcMotor.get("rMotor");
+        leftMotor = hMap.dcMotor.get("leftMotor");
+        rightMotor = hMap.dcMotor.get("rightMotor");
         leftMotor.setDirection(DcMotor.Direction.REVERSE);
         forkUp = hMap.dcMotor.get("forkupdn");
 
         leftClamp = hMap.servo.get("leftClamp");
         rightClamp = hMap.servo.get("rightClamp");
         cServo = hMap.servo.get("cServo");
-        imu = new ADAFruitIMU(hMap, "imu");
         colorSensor = hMap.colorSensor.get("cSensor");
 
         leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
