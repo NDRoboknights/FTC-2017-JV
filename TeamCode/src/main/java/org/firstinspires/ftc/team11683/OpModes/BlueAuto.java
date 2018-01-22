@@ -19,15 +19,15 @@ public class BlueAuto extends LinearOpMode
 {
     public void runOpMode() throws InterruptedException
     {
-        long time = System.nanoTime();
-        RelicRecoveryVuMark vuMark = RelicRecoveryVuMark.UNKNOWN;
+//        long time = System.nanoTime();
+//        RelicRecoveryVuMark vuMark = RelicRecoveryVuMark.UNKNOWN;
 
         waitForStart();
 
-        VuforiaScanner scanner = new VuforiaScanner();
+//        VuforiaScanner scanner = new VuforiaScanner();
         Jewel jewel = new Jewel(telemetry, hardwareMap);
-        CryptoBox box = new CryptoBox(telemetry,hardwareMap);
-        TestBedBot bot = new TestBedBot();
+//        CryptoBox box = new CryptoBox(telemetry,hardwareMap);
+//        TestBedBot bot = new TestBedBot();
 
 //        scanner.initialize();
 

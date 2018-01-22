@@ -1,13 +1,13 @@
 package org.firstinspires.ftc.team11683.AutoUtils;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
-
-import org.firstinspires.ftc.team11683.bot.ColorBot;
+import org.firstinspires.ftc.team11683.bot.AutoBot;
 import org.firstinspires.ftc.team11683.enums.NewDirection;
 import org.firstinspires.ftc.team11683.enums.Status;
 import org.firstinspires.ftc.team11683.utils.Utilities;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.team11683.utils.CustomAutonomous;
+
 /**
  * Created by sambl on 12/13/2017
  */
@@ -17,13 +17,13 @@ public class Jewel
     private Telemetry telemetry;
     private HardwareMap hardwareMap;
     private String AccColor;
-    private ColorBot bot = new ColorBot();
+    private AutoBot bot = new AutoBot();
 
     public Jewel(Telemetry telemetry, HardwareMap hMap)
     {
         this.telemetry = telemetry;
         this.hardwareMap = hMap;
-        bot.init(hardwareMap);
+        bot.init(hMap);
         
     }
 
@@ -63,13 +63,13 @@ public class Jewel
         {
             telemetry.addData("Status: ", Status.WORKING);
             telemetry.update();
-            bot.LMotor.setPower(NewDirection.BACKWARD.v);
-            bot.RMotor.setPower(NewDirection.BACKWARD.v);
+            bot.leftMotor.setPower(NewDirection.BACKWARD.v);
+            bot.rightMotor.setPower(NewDirection.BACKWARD.v);
             Utilities.delay(400);
             bot.cServo.setPosition(0.2);
             Utilities.delay(600);
-            bot.LMotor.setPower(0);
-            bot.RMotor.setPower(0);
+            bot.leftMotor.setPower(0);
+            bot.rightMotor.setPower(0);
             telemetry.addData("Status: ", Status.FINISHED);
             telemetry.update();
         }
@@ -78,13 +78,13 @@ public class Jewel
         {
             telemetry.addData("Status: ", Status.WORKING);
             telemetry.update();
-            bot.LMotor.setPower(NewDirection.FORWARD.v);
-            bot.RMotor.setPower(NewDirection.FORWARD.v);
+            bot.leftMotor.setPower(NewDirection.FORWARD.v);
+            bot.rightMotor.setPower(NewDirection.FORWARD.v);
             Utilities.delay(400);
             bot.cServo.setPosition(0.2);
             Utilities.delay(600);
-            bot.RMotor.setPower(0);
-            bot.LMotor.setPower(0);
+            bot.rightMotor.setPower(0);
+            bot.leftMotor.setPower(0);
             telemetry.addData("Status: ", Status.FINISHED);
             telemetry.update();
         }
@@ -92,13 +92,13 @@ public class Jewel
         {
             telemetry.addData("Status: ", Status.WORKING);
             telemetry.update();
-            bot.LMotor.setPower(NewDirection.BACKWARD.v);
-            bot.RMotor.setPower(NewDirection.BACKWARD.v);
+            bot.leftMotor.setPower(NewDirection.BACKWARD.v);
+            bot.rightMotor.setPower(NewDirection.BACKWARD.v);
             Utilities.delay(400);
             bot.cServo.setPosition(0.2);
             Utilities.delay(600);
-            bot.RMotor.setPower(0);
-            bot.LMotor.setPower(0);
+            bot.rightMotor.setPower(0);
+            bot.leftMotor.setPower(0);
             telemetry.addData("Status: ", Status.FINISHED);
             telemetry.update();
         }
@@ -106,13 +106,13 @@ public class Jewel
         {
             telemetry.addData("Status: ", Status.WORKING);
             telemetry.update();
-            bot.LMotor.setPower(NewDirection.FORWARD.v);
-            bot.RMotor.setPower(NewDirection.FORWARD.v);
+            bot.leftMotor.setPower(NewDirection.FORWARD.v);
+            bot.rightMotor.setPower(NewDirection.FORWARD.v);
             Utilities.delay(400);
             bot.cServo.setPosition(0.2);
             Utilities.delay(600);
-            bot.RMotor.setPower(0);
-            bot.LMotor.setPower(0);
+            bot.rightMotor.setPower(0);
+            bot.leftMotor.setPower(0);
             telemetry.addData("Status: ", Status.FINISHED);
             telemetry.update();
         }

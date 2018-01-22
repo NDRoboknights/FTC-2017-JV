@@ -3,13 +3,7 @@ package org.firstinspires.ftc.team11683.bot;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.PIDCoefficients;
 import com.qualcomm.robotcore.hardware.Servo;
-import org.firstinspires.ftc.team11683.Gyro.ADAFruitIMU;
-import org.firstinspires.ftc.team11683.PID.PIDController;
-import org.firstinspires.ftc.team11683.PID.PIDFunctions;
-import org.firstinspires.ftc.team11683.PID.PIDInput;
-
 
 public class TestBedBot extends Bot
 {
@@ -19,18 +13,11 @@ public class TestBedBot extends Bot
     public Servo rightClamp;
     public Servo cServo;
     public DcMotor forkUp;
-    public ADAFruitIMU imu;
-    public PIDCoefficients pidc;
-    public PIDFunctions pidFunctions;
-    public PIDController pidController;
-    public PIDInput pidInput;
     public ColorSensor colorSensor;
+
     @Override
     public void init(HardwareMap hMap)
     {
-        pidc = new PIDCoefficients();
-        pidController = new PIDController(pidInput, pidc);
-        pidFunctions = new PIDFunctions(this, pidController);
         this.hardwareMap = hMap;
         leftMotor = hMap.dcMotor.get("leftMotor");
         rightMotor = hMap.dcMotor.get("rightMotor");
