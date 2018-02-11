@@ -14,10 +14,10 @@ import org.firstinspires.ftc.team11683.utils.CustomAutonomous;
 
 public class Jewel
 {
-    private Telemetry telemetry;
+    public Telemetry telemetry;
     private HardwareMap hardwareMap;
-    private String AccColor;
-    private AutoBot bot = new AutoBot();
+    public String AccColor;
+    private  AutoBot bot = new AutoBot();
 
     public Jewel(Telemetry telemetry, HardwareMap hMap)
     {
@@ -27,10 +27,10 @@ public class Jewel
         
     }
 
-    private int getBlue(){return bot.colorSensor.blue();}
-    private int getRed(){return bot.colorSensor.red();}
+    private  int getBlue(){return bot.colorSensor.blue();}
+    private  int getRed(){return bot.colorSensor.red();}
 
-    public String interpretColor(){
+    public  String interpretColor(){
             if(getBlue() > CustomAutonomous.COLOR_THRESHOLD && getRed()<CustomAutonomous.COLOR_THRESHOLD)
             {
                 AccColor = "blue";
@@ -50,7 +50,7 @@ public class Jewel
             return AccColor;
         }
 
-    public void altknock(String team)
+    public  void altknock(String team)
     {
         bot.cServo.setPosition(0.9);
         telemetry.addData("Status: ", Status.BEGINNING);
@@ -104,17 +104,12 @@ public class Jewel
         }
         else if(AccColor.equals("red") && team.equals("red"))
         {
-            telemetry.addData("Status: ", Status.WORKING);
             telemetry.update();
-            bot.leftMotor.setPower(NewDirection.FORWARD.v);
-            bot.rightMotor.setPower(NewDirection.FORWARD.v);
             Utilities.delay(400);
             bot.cServo.setPosition(0.2);
             Utilities.delay(600);
             bot.rightMotor.setPower(0);
             bot.leftMotor.setPower(0);
-            telemetry.addData("Status: ", Status.FINISHED);
-            telemetry.update();
         }
     }
 }
