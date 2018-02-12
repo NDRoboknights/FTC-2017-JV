@@ -97,13 +97,15 @@ public class teleOp extends CustomTeleOp
         //telemetry
         telemetry.addData("L Position: ", lPos);
         telemetry.addData("R Position: ", rPos);
+        telemetry.addData("Fork Pos: ", fPos);
         telemetry.addData("L Speed: ", lSpeed);
         telemetry.addData("R Speed: ", rSpeed);
+        telemetry.addData("Fork Speed: ", fSpeed);
         telemetry.addData("LeftStickY: ", gamepad1.left_stick_y);
-        telemetry.addData("L Pow: ", bot.leftMotor.getPower());
         telemetry.addData("RightStickY: ", gamepad1.right_stick_y);
+        telemetry.addData("L Pow: ", bot.leftMotor.getPower());
         telemetry.addData("R Pow: ", bot.rightMotor.getPower());
-        telemetry.addData("ForkUpP: ", bot.forkUp.getPower());
+        telemetry.addData("Fork Pow: ", bot.forkUp.getPower());
         telemetry.addData("RightClampPos: ", bot.rightClamp.getPosition());
         telemetry.addData("LeftClampPos: ", bot.leftClamp.getPosition());
         telemetry.update();
