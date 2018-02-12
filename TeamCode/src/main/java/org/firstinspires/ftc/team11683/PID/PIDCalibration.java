@@ -87,7 +87,7 @@ public class PIDCalibration extends CustomAutonomous
             }
             prevA = a;
 
-            telemetry.addData("IMU: ", bot.imu.getValue());
+//            telemetry.addData("IMU: ", bot.imu.getValue());
             telemetry.addData("P: ", p);
             telemetry.addData("I: ", i);
             telemetry.addData("D: ", d);

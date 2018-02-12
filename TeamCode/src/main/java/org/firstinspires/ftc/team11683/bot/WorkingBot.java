@@ -19,7 +19,8 @@ public class WorkingBot extends Bot
     public Servo rightClamp;
     public Servo cServo;
 
-    public void init(HardwareMap hMap){
+    public void init(HardwareMap hMap)
+    {
         this.hardwareMap = hMap;
 
         leftMotor = hMap.dcMotor.get("leftMotor");
@@ -30,6 +31,7 @@ public class WorkingBot extends Bot
 
         leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        forkUp.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         leftClamp = hMap.servo.get("leftClamp");
         rightClamp = hMap.servo.get("rightClamp");

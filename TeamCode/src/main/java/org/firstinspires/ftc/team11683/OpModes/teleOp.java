@@ -15,6 +15,7 @@ public class teleOp extends CustomTeleOp
     private long prevTime = 0;
     private int lPrevPos = 0;
     private int rPrevPos = 0;
+    private int fPrevPos = 0;
     private double rightPower = 0;
     private double leftPower = 0;
 
@@ -35,13 +36,16 @@ public class teleOp extends CustomTeleOp
         long currTime = System.nanoTime();
         int lPos = bot.leftMotor.getCurrentPosition();
         int rPos = bot.rightMotor.getCurrentPosition();
+        int fPos = bot.forkUp.getCurrentPosition();
 
         double dTime = (currTime - prevTime) * 10E-9;
         double dLPos = lPos - lPrevPos;
         double dRPos = rPos - rPrevPos;
+        double dFpos = fPos - fPrevPos;
 
         double lSpeed = Math.abs(dLPos/dTime);
         double rSpeed = Math.abs(dRPos/dTime);
+        double fSpeed = Math.abs(dFpos/dTime);
         //joysticks
 
         //left
@@ -108,5 +112,6 @@ public class teleOp extends CustomTeleOp
         prevTime = currTime;
         lPrevPos = lPos;
         rPrevPos = rPos;
+        fPrevPos = fPos;
     }
 }
