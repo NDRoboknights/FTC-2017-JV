@@ -1,11 +1,17 @@
 package org.firstinspires.ftc.team11683.utils;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
+import org.firstinspires.ftc.team11683.OpModes.CustomTeleOp;
+
+import static com.sun.tools.doclint.Entity.or;
+import static org.firstinspires.ftc.team11683.OpModes.CustomTeleOp.JOYSTICK_THRESHOLD;
+
 /**
  * Useful functions including <code>delay(...)</code> and <code>scalePower(...)</code>
  */
 public class Utilities
 {
+    private static CustomTeleOp tele;
     final static Object monitor = new Object();
     /**
      * Waits untils <code>sChecker.checkStatus()</code> returns false.
@@ -78,5 +84,20 @@ public class Utilities
             m.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             m.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
+    }
+    public static double forkInput (boolean dpad, double trig)
+    {
+        double pow = 0;
+
+        if(dpad && trig>JOYSTICK_THRESHOLD){
+            pow = tele.scaleInput(trig);
+        }else if(!dpad){
+            pow = 0;
+        }else if(trig<JOYSTICK_THRESHOLD){
+            pow = 0;
+        }else if(!dpad && trig<JOYSTICK_THRESHOLD){
+            pow = 0;
+        }
+        return pow;
     }
 }

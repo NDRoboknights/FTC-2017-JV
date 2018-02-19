@@ -2,6 +2,7 @@ package org.firstinspires.ftc.team11683.OpModes;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.team11683.bot.WorkingBot;
+import org.firstinspires.ftc.team11683.utils.Utilities;
 
 /**
  * Created by sambl on 9/25/2017
@@ -51,7 +52,7 @@ public class teleOp extends CustomTeleOp
         //left
         if(Math.abs(gamepad1.left_stick_y) > JOYSTICK_THRESHOLD) {
             leftPower = scaleInput(gamepad1.left_stick_y);
-            bot.leftMotor.setPower(leftPower);
+            bot.leftMotor.setPower(0.75*leftPower);
         } else
             {
             bot.leftMotor.setPower(0);
@@ -60,7 +61,7 @@ public class teleOp extends CustomTeleOp
         //right
         if(Math.abs(gamepad1.right_stick_y) > JOYSTICK_THRESHOLD) {
             rightPower = scaleInput(gamepad1.right_stick_y);
-            bot.rightMotor.setPower(rightPower);
+            bot.rightMotor.setPower(0.75*rightPower);
         } else
             {
             bot.rightMotor.setPower(0);
@@ -81,17 +82,11 @@ public class teleOp extends CustomTeleOp
         //forkUP
         if (gamepad1.dpad_up)
         {
-            bot.forkUp.setPower(1);
-        } else
-            {
-            bot.forkUp.setPower(0);
+            bot.forkUp.setPower((double) 0.75*gamepad1.left_trigger);
         }
         if (gamepad1.dpad_down)
         {
-            bot.forkUp.setPower(-1);
-        } else
-            {
-            bot.forkUp.setPower(0);
+            bot.forkUp.setPower((double) -0.75*gamepad1.left_trigger);
         }
 
         //telemetry

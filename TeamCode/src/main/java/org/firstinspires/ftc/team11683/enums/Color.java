@@ -6,7 +6,7 @@ package org.firstinspires.ftc.team11683.enums;
 
 public enum Color
 {
-    BLUE(1), RED(-1);
+    BLUE(1), RED(-1), UNKNOWN(0);
 
     public int v;
 

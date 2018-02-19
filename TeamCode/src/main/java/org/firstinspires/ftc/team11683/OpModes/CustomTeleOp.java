@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
  */
 public abstract class CustomTeleOp extends OpMode
 {
-    protected static final double JOYSTICK_THRESHOLD = 0.125;
+    public static final double JOYSTICK_THRESHOLD = 0.125;
 
     /**
      * @param dVal The value to scale.
