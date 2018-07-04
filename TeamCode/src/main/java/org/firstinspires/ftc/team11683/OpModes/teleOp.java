@@ -2,7 +2,6 @@ package org.firstinspires.ftc.team11683.OpModes;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.team11683.bot.WorkingBot;
-import org.firstinspires.ftc.team11683.utils.Utilities;
 
 /**
  * Created by sambl on 9/25/2017

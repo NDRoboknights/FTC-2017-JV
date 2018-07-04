@@ -10,6 +10,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 /**
  * Created by sambl on 12/19/2017.
  */
+
 public class AutoBot extends Bot
 {
     //motors
